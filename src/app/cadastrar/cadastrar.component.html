@@ -14,32 +14,32 @@
 
           <div class="form-group">
             <label for="nome">  <nav>Nome</nav></label>
-            <input class="form-control" type="text" name="nome" id="nome" placeholder="Seu Nome">
+            <input [(ngModel)]='user.nome' class="form-control" type="text" name="nome" id="nome" placeholder="Seu Nome">
           </div>
 
           <div class="form-group">
             <label for="usuario">Usuário</label>
-            <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Seu usuario">
+            <input [(ngModel)]='user.usuario' class="form-control" type="text" name="usuario" id="usuario" placeholder="Seu usuario">
           </div>
 
           <div class="form-group">
             <label for="link da foto">Link da Foto</label>
-            <input class="form-control" type="text" name="foto" id="foto" placeholder="Link da sua foto">
+            <input [(ngModel)]='user.foto' class="form-control" type="text" name="foto" id="foto" placeholder="Link da sua foto">
           </div>
 
           <div class="form-group">
             <label for="senha">Senha</label>
-            <input class="form-control" type="password" name="senha" id="senha" placeholder="Digite uma Senha">
+            <input (input)='confirmSenha($event)' class="form-control" type="password" name="senha" id="senha" placeholder="Digite uma Senha">
           </div>
 
           <div class="form-group">
             <label for="confirmaSenha">Confirme Senha</label>
-            <input class="form-control" type="password" name="confirmaSenha" id="confirmaSenha" placeholder="Confirme Senha">
+            <input [(ngModel)]='user.senha' class="form-control" type="password" name="confirmaSenha" id="confirmaSenha" placeholder="Confirme Senha">
           </div>
 
           <div class="form-group">
             <label for="tipo">Tipo de Usuário</label>
-            <select class="form-control" name="tipo" id="tipo">
+            <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
               <option> Selecione um tipo de usuário</option>
               <option value="normal">Normal</option>
               <option value="adm">Administrador</option>
@@ -47,11 +47,9 @@
           </div>
 
           <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-secondary mr-4">Cadastrar</button>
-            <button type="submit" class="btn btn-secondary" routerLink='/entrar'>Cancelar</button>
+            <button type="submit" class="btn btn-secondary mr-4" routerLink='/entrar'>Cadastrar</button>
+            <button type="submit" class="btn btn-secondary" (click)='cadastrar()'>Cancelar</button>
           </div>
-
-
 
         </div>
 
